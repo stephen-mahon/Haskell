@@ -1,0 +1,10 @@
+fibStep :: (Int, Int) -> (Int, Int)
+fibStep (u,v) = (v, u+v)
+
+fibPair :: Int -> (Int, Int)
+fibPair n
+  | n==0      = (0, 1)
+  | otherwise = fibStep (fibPair(n-1))
+
+fastFib :: Int -> Int
+fastFib = fst . fibPair
